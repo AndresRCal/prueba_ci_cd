@@ -1,0 +1,7 @@
+# Google Cloud Service Account Key
+*.json
+
+# Python virtual environments
+venv/
+__pycache__/
+.env
