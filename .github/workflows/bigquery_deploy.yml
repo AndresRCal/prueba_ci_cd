@@ -1,0 +1,30 @@
+name: BigQuery CI/CD Pipeline
+
+on:
+  push:
+    branches: [ master, main ]  # Se activa al subir cambios a estas ramas
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  deploy-sql:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY_CICD_PRUEBA }} # Aquí usa el secreto que guardamos
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Execute SQL Scripts
+        run: |
+          # Este comando busca todos los archivos .sql en ddl/ y los ejecuta
+          for file in sql/ddl/*.sql; do
+            echo "Ejecutando $file..."
+            bq query --use_legacy_sql=false < "$file"
+          done

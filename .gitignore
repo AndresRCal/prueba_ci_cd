@@ -1,4 +1,5 @@
 # Google Cloud Service Account Key
+# Esto hará que Git ignore cualquier archivo JSON, protegiendo la llave local
 *.json
 
 # Python virtual environments
