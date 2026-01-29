@@ -1,0 +1,19 @@
+-- TABLA IMPUT PARA SDX
+CREATE OR REPLACE TABLE `crp-sdx-cx-analitica.mus_sdx_cx_adv_analytics_neg_fin_trn.PRUEBA_CI_CD_AANF_DB_SEG0_SBB_TD_CMP_0_IMPUT` AS 
+SELECT 
+  CTA_CVE,
+  MTH,
+  MESES_ANTIGUEDAD_ACT,
+  NUM_CTAS_CDAS_ACT,
+  ADVISER_99,
+  PORC_CTAS_UTIL_10MENOS,
+  ZONA,
+  SALDO_EXT_1,
+  MAX_MOP_6M_TOT,
+  PORC_UTIL_TOTAL,
+  MAX_LIMTCRED_DEP,
+  ADVISER_4,
+  ROW_ID,
+  B_GRUPO_CONTROL
+FROM `crp-sdx-cx-analitica.mus_sdx_cx_adv_analytics_neg_fin_trn.AAREYESC_VAR_DOR_SBB_TD_SEGMENTO_0` -- AJUSTAR
+;
